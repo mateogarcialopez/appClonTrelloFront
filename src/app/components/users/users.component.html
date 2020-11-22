@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <h1 class="text-center" >Registrate</h1>
+
+    <form [formGroup]="formularioTerinado">
+        <div class="form-group">
+            <label>Nombre Completo</label>
+            <input type="text" class="form-control" formControlName="nombre_completo">
+            <div *ngIf="formularioTerinado.controls['nombre_completo'].invalid && formularioTerinado.controls['nombre_completo'].dirty" class="alert alert-danger"
+                role="alert">
+                El nombre es requerido
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Correo</label>
+            <input type="text" class="form-control" formControlName="email">
+            <div *ngIf="formularioTerinado.controls['email'].invalid && formularioTerinado.controls['email'].dirty">
+                <div *ngIf="formularioTerinado.controls['email'].errors.required" class="alert alert-danger"
+                    role="alert">
+                    El coreo es requerido
+                </div>
+                <div *ngIf="formularioTerinado.controls['email'].errors.email" class="alert alert-danger" role="alert">
+                    Ingresa el correo valido
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" formControlName="contrasena">
+            <div
+                *ngIf="formularioTerinado.controls['contrasena'].invalid && formularioTerinado.controls['contrasena'].dirty">
+                <div *ngIf="formularioTerinado.controls['contrasena'].errors.required" class="alert alert-danger" role="alert">
+                    La contraseña es requerida
+                </div>
+                <div *ngIf="formularioTerinado.controls['contrasena'].errors.minlength" class="alert alert-danger" role="alert">
+                    La contraseña debe tener al menos 8 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button [disabled]="!formularioTerinado.valid" (click)="registrar()" type="submit"
+                class="btn btn-success btn-block">Registrarme</button>
+        </div>
+    </form>
+
+</div>
