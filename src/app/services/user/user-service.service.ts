@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
@@ -23,6 +23,11 @@ export class UserServiceService {
     let body = JSON.stringify(data);
     let headers = new HttpHeaders().set('Content-type', 'application/json');
     return this._http.post(`${this.url}/login`, body, { headers: headers });
+  }
+
+  loginWithGoogle(token): Observable<any> {
+    let headers = new HttpHeaders().set('Content-type', 'application/json').set('authorization', token);
+    return this._http.get(`${this.url}/loginGoogle`, { headers: headers });
   }
 
 
