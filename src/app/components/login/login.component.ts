@@ -36,10 +36,17 @@ export class LoginComponent implements OnInit {
     await this.getTokenGoogle();
     await this._userService.loginWithGoogle(this.userGoogle.idToken).subscribe(
       res => {
-        //await this._router.navigate(['/notes'])
+        if (res.status) {
+          this.token = res.token;
+          this.user = res.user;
+          localStorage.setItem('token', JSON.stringify(this.token));
+          localStorage.setItem('user', JSON.stringify(this.user));
+          this._router.navigate(['/notes']);
+        }
+
       },
       err => {
-
+        console.log(err);
       }
     );
 
