@@ -10,7 +10,8 @@ export class MenuComponent implements OnInit {
 
   userGoogle: SocialUser;
   loggedIn: boolean;
-  
+  loggedInN: boolean;
+
   constructor(private authService: SocialAuthService, private _route: Router) { }
 
   ngOnInit(): void {
@@ -18,10 +19,20 @@ export class MenuComponent implements OnInit {
       this.userGoogle = userGoogle;
       this.loggedIn = (userGoogle != null);
     });
+    if (localStorage.getItem('user') != undefined) {
+      this.loggedInN = true;
+      //console.log('yes');
+    }
   }
 
   signOut(): void {
     this.authService.signOut();
+    this._route.navigate(['/login']);
+  }
+
+  ceearSesion() {
+    localStorage.clear();
+    this.loggedInN = false;
     this._route.navigate(['/login']);
   }
 

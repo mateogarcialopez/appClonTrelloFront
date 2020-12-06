@@ -1,43 +1,48 @@
 <app-menu></app-menu>
-<div class="container mt-5">
-    <form [formGroup]="formularioCreado">
-        <div class="form-group">
-            <label>Correo</label>
-            <input type="text" class="form-control" formControlName="email">
-            <div *ngIf="formularioCreado.controls['email'].invalid && formularioCreado.controls['email'].dirty">
-                <div *ngIf="formularioCreado.controls['email'].errors.required" class="alert alert-danger" role="alert">
-                    El coreo es requerido
-                </div>
-                <div *ngIf="formularioCreado.controls['email'].errors.email" class="alert alert-danger" role="alert">
-                    Ingresa el correo valido
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" class="form-control" formControlName="contrasena">
-            <div
-                *ngIf="formularioCreado.controls['contrasena'].invalid && formularioCreado.controls['contrasena'].dirty">
-                <div *ngIf="formularioCreado.controls['contrasena'].errors.required" class="alert alert-danger"
-                    role="alert">
-                    La contraseña es requerida
-                </div>
-                <div *ngIf="formularioCreado.controls['contrasena'].errors.required" class="alert alert-danger"
-                    role="alert">
-                    La contraseña debe tener al menos 8 caracteres
+<div class="card mx-auto mt-5" style="width: 600px;">
+    <div class="card-header">
+        <h3 class="text-center" >Clon Trello</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="formularioCreado">
+            <div class="form-group">
+                <label>Correo</label>
+                <input type="text" class="form-control" formControlName="email">
+                <div *ngIf="formularioCreado.controls['email'].invalid && formularioCreado.controls['email'].dirty">
+                    <div *ngIf="formularioCreado.controls['email'].errors.required" class="alert alert-danger" role="alert">
+                        El coreo es requerido
+                    </div>
+                    <div *ngIf="formularioCreado.controls['email'].errors.email" class="alert alert-danger" role="alert">
+                        Ingresa el correo valido
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <button [disabled]="!formularioCreado.valid" (click)="login()" type="submit"
-                class="btn btn-success btn-block">Ingresar</button>
-        </div>
-        <div class="form-group">
-            <button [disabled]="!formularioCreado.valid" (click)="signInWithGoogle()" type="submit"
-                class="btn btn-success btn-block">Ingresar con Google</button>
-        </div>
-        <div class="form-group">
-            <button type="button" [routerLink]="['/user']" class="btn btn-primary btn-block">Registrate</button>
-        </div>
-    </form>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" formControlName="contrasena">
+                <div
+                    *ngIf="formularioCreado.controls['contrasena'].invalid && formularioCreado.controls['contrasena'].dirty">
+                    <div *ngIf="formularioCreado.controls['contrasena'].errors.required" class="alert alert-danger"
+                        role="alert">
+                        La contraseña es requerida
+                    </div>
+                    <div *ngIf="formularioCreado.controls['contrasena'].errors.required" class="alert alert-danger"
+                        role="alert">
+                        La contraseña debe tener al menos 8 caracteres
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="!formularioCreado.valid" (click)="login()" type="submit"
+                    class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+            </div>
+            <div class="form-group">
+                <button [disabled]="!formularioCreado.valid" (click)="signInWithGoogle()" type="submit"
+                    class="btn btn-danger btn-block"><i class="fab fa-google"></i> Ingresar con Google</button>
+            </div>
+            <div class="form-group">
+                <button type="button" [routerLink]="['/user']" class="btn btn-primary btn-block">Registrate</button>
+            </div>
+        </form>
+    </div>
 </div>

@@ -12,7 +12,17 @@
             <li *ngIf="loggedIn" class="nav-item">
                 <a class="nav-link" [routerLink]="['/notes']">Mis notas</a>
             </li>
+            <li *ngIf="loggedInN" class="nav-item">
+                <a class="nav-link" [routerLink]="['/notes']">Mis notas</a>
+            </li>
+            <li *ngIf="loggedIn" class="nav-item">
+                <a class="nav-link" [routerLink]="['/newNote']">Crear nota</a>
+            </li>
+            <li *ngIf="loggedInN" class="nav-item">
+                <a class="nav-link" [routerLink]="['/newNote']">Crear nota</a>
+            </li>
         </ul>
-        <button *ngIf="loggedIn" class="btn btn-outline-danger my-2 my-sm-0" (click)="signOut()">Cerrar sesion</button>
+        <button *ngIf="loggedIn" class="btn btn-outline-danger my-2 my-sm-0" (click)="signOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
+        <button *ngIf="loggedInN" class="btn btn-outline-danger my-2 my-sm-0" (click)="ceearSesion()"><i class="fas fa-sign-out-alt"></i> Cerrar sesion</button>
     </div>
 </nav>

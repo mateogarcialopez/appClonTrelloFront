@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserServiceService } from './services/user/user-service.service';
 import { EditNotesComponent } from './components/edit-notes/edit-notes.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { AddNoteComponent } from './components/add-note/add-note.component';
 
 
 
@@ -23,7 +24,8 @@ import { MenuComponent } from './components/menu/menu.component';
     UsersComponent,
     NotesComponent,
     EditNotesComponent,
-    MenuComponent
+    MenuComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,
